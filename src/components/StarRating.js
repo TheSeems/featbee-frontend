@@ -6,7 +6,7 @@ import {FaStar} from "react-icons/fa";
 async function sendRating(rating, content, setRating, setContent) {
     toast.remove()
 
-    const promise = fetch("https://thrut.theseems.ru/api", {
+    const promise = fetch("https://featbee.theseems.ru/api", {
         method: 'POST',
         body: JSON.stringify({
             "score": rating,
@@ -35,7 +35,7 @@ async function sendRating(rating, content, setRating, setContent) {
 }
 
 async function fetchRating(setRating, setContent) {
-    return fetch("https://thrut.theseems.ru/api", {
+    return fetch("https://featbee.theseems.ru/api", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -115,7 +115,6 @@ const StarRating = () => {
                                         key={index}
                                         onClick={() => {
                                             sendRating(index, content, setRating, setContent)
-                                                .then(r => console.log('Received: ', r))
                                         }}>
                                         <FaStar color={index <= rating ? '#FFD54F': 'gray'}/>
                                     </button>

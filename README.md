@@ -1,2 +1,2 @@
-# Thrut
-https://thrut.theseems.ru
+# Featbee
+https://featbee.theseems.ru

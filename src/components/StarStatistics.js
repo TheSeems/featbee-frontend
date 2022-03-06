@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 async function fetchStatistics(setAverage, setCount) {
-    return fetch("https://thrut.theseems.ru/api/statistics", {
+    return fetch("https://featbee.theseems.ru/api/statistics", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
