@@ -5,3 +5,11 @@
 .App {
   text-align: center;
 }
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+textarea {
+  overflow: -moz-hidden-unscrollable;
+}

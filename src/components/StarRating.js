@@ -69,8 +69,8 @@ const StarRating = () => {
         fetch().then(r => {
             if (r.success !== false) {
                 toast.remove()
-                toast("Fetched feedback", {
-                    duration: 1000,
+                toast("Your feedback has been restored", {
+                    duration: 1100,
                     icon: '👁️‍🗨️'
                 })
             }
@@ -99,7 +99,7 @@ const StarRating = () => {
                     w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md
                     `}
                         id={"content"}
-                        placeholder={"Your feedback"}
+                        placeholder={"Please, enter your comment here"}
                         style={{marginLeft: 0, paddingLeft: 0, resize: 'none'}}
                         rows={2}
                         value={content} onChange={handleChanges}
