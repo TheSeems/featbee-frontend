@@ -1,26 +1,24 @@
 import React, {useEffect, useState} from "react";
+import {apiUrl} from "../App";
 
 async function fetchStatistics(setAverage, setCount) {
-    return fetch("https://featbee.theseems.ru/api/statistics", {
+    return fetch(apiUrl + "/statistics", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then((response) => {
-        return response.json()
-    }).then((result) => {
-        console.log('Statistics ', result)
-        if (result.success === false) {
-            console.error(result)
-            return null
-        }
-
-        setAverage(result.averageScore)
-        setCount(result.count)
-        return result
-    }).catch((failure) => {
-        console.error(failure)
     })
+        .then((response) => response.json())
+        .then((result) => {
+            if (result.success === false) {
+                console.error(result)
+                return null
+            }
+
+            setAverage(result.averageScore)
+            setCount(result.count)
+            return result
+        }).catch((failure) => console.error(failure))
 }
 
 const StarRating = (props) => {
@@ -28,21 +26,8 @@ const StarRating = (props) => {
     const [count, setCount] = useState();
 
     useEffect(() => {
-        async function fetch() {
-            return await fetchStatistics(setAverage, setCount)
-        }
-
-        fetch()
-    }, [])
-
-    useEffect(() => {
-        async function fetch() {
-            return await fetchStatistics(setAverage, setCount)
-        }
-
-        fetch()
+        (async () => await fetchStatistics(setAverage, setCount))()
     }, [props.score])
-
 
     return (
         <div className={"transition duration-150 ease-in-out rounded-lg max-w-prose mx-auto"}
