@@ -30,9 +30,8 @@ const StarRating = (props) => {
     }, [props.score])
 
     return (
-        <div className={"transition duration-150 ease-in-out rounded-lg max-w-prose mx-auto"}
-             style={{margin: "auto"}}>
-            <div className="grid grid-rows-2 grid-flow-col content-around items-center align-center">
+        <div className={"transition duration-150 ease-in-out rounded-lg max-w-prose"} style={{margin: "auto"}}>
+            <div className="grid grid-rows-2 grid-flow-col content-around items-center align-top">
                 <div>
                     <h1 className={"font-bold text-3xl"}>{average === undefined ? "..." : average.toFixed(2)}</h1>
                 </div>
